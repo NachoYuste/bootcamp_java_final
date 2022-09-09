@@ -1,6 +1,7 @@
 package data.jpa.test.services;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,13 +34,15 @@ public class TutorialService {
 		return(result);
 	}
 
-	public Tutorial findById(Long id) {
+	public Tutorial findById(Long id) throws NoSuchElementException{
 		Optional<Tutorial> result = null;
 		result = tutorialRepository.findById(id.longValue());
+		
 		if(result.isEmpty()) {
-			return null;
+			throw new NoSuchElementException("Unable to find. Tutorial not found");
 		} else {
 			return(result.get());
 		}
+		
 	}
 }
