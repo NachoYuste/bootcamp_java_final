@@ -1,4 +1,4 @@
-package data.jpa.test.respository;
+package data.jpa.test.repository;
 
 import java.util.List;
 

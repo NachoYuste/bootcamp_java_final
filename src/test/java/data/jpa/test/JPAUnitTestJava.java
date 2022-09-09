@@ -8,7 +8,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
 import data.jpa.test.model.Tutorial;
-import data.jpa.test.respository.TutorialRepository;
+import data.jpa.test.repository.TutorialRepository;
 
 @DataJpaTest
 public class JPAUnitTestJava {
