@@ -5,6 +5,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -41,6 +44,21 @@ public class ControllerUnitTest {
 	
 	@Test
 	public void should_get_all_tutorials() throws Exception {
+		List<Tutorial> list = new ArrayList<Tutorial>();
+		
+		Tutorial tutorialOne = new Tutorial("Tut title", "Tut desc", true);
+		Tutorial tutorialTwo = new Tutorial("Tut title2", "Tut desc2", true);
+		Tutorial tutorialThree = new Tutorial("Tut title3", "Tut desc3", true);
+		
+		list.add(tutorialOne);
+	    list.add(tutorialTwo);
+	    list.add(tutorialThree);
+		
+		when(tutorialService.findAll()).thenReturn(list);
+
+		mockMvc.perform(get("/tutorials"))
+			.andExpect(status().isOk())
+			.andExpect(jsonPath("$", Matchers.hasSize(3)));
 		
 	}
 }

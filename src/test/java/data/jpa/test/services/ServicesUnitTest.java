@@ -51,6 +51,18 @@ public class ServicesUnitTest {
   
   @Test
   void should_find_all_tutorials() {
+	  List<Tutorial> list = new ArrayList<Tutorial>();
 	  
+	  Tutorial tutorialOne = new Tutorial("Tut title", "Tut desc", true);
+	  Tutorial tutorialTwo = new Tutorial("Tut title2", "Tut desc2", true);
+	  Tutorial tutorialThree = new Tutorial("Tut title3", "Tut desc3", true);
+      
+	  list.add(tutorialOne);
+      list.add(tutorialTwo);
+      list.add(tutorialThree);
+      
+      when(tutorialRepository.findAll()).thenReturn(list);
+      List<Tutorial> tutList = tutorialService.findAll();
+      assertEquals(3,tutList.size());
   }
 }
