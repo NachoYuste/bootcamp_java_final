@@ -1,0 +1,11 @@
+-------------------------------------------------------------------------------
+Test set: services.ServicesUnitTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.945 s <<< FAILURE! - in services.ServicesUnitTest
+should_delete_tutorial_by_id  Time elapsed: 1.943 s  <<< ERROR!
+org.mockito.exceptions.base.MockitoException: 
+
+Checked exception is invalid for this method!
+Invalid: java.lang.Exception
+	at services.ServicesUnitTest.should_delete_tutorial_by_id(ServicesUnitTest.java:62)
+
